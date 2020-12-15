@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} 
+周庭如的網站
+{% endblock %} 
+{% block titlemessage %} 
+    <h1>喜樂蒂牧羊犬Hannah的生活</h1>
+{% endblock %} 
+{% block content %} 
+      <table class="table table-striped">
+        <tr><th>編號</td><td>主題</td><td>張貼時間</td></tr>
+        {% for post in posts %}
+        <tr>
+          <td>{{post.id}}</td>
+          <td>
+            <a href = "/post/{{post.slug}}/">{{post.title}}</a><br>
+        </td>
+        <td>
+          {{post.pub_date}}
+        </td>
+      </tr>
+      {% endfor %}
+      </table>
+      您是第{{ hit_count }}位造訪本網站的人
+{% endblock %} 
