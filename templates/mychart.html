@@ -5,21 +5,35 @@
 {% block titlemessage %} 
 <h1>
   我的統計圖表
-  <small class="text-muted">我也不知道做這個要幹嘛</small>
+  <small class="text-muted">各店營業狀況</small>
 </h1>
 {% endblock %} 
 {% block content %} 
 <button class="btn btn-sm">
-    <a href="/mychart/">所有分店</a>
+    <a href="/mychart/"class="btn btn-outline-primary">所有分店</a>
 </button>
   {% for s in stores %}
     <button class="btn btn-sm">
-      <a href='/mychart/{{s.id}}/'>
+      <a href='/mychart/{{s.id}}/'class="btn btn-outline-secondary">
         {{s.title}}
       </a>
     </button>
 {% endfor %} 
-
+<br>
+月份：
+<button>
+  <a href='/chartbydate/2020/11'>2020/11</a>
+</button>
+<button>
+  <a href='/chartbydate/2020/12'>2020/12</a>
+</button>
+年份：
+<button>
+  <a href='/chartbydate/2020'>2020</a>
+</button>
+<button>
+  <a href='/chartbydate/2021'>2021</a>
+</button> 
 <center>
 <table width=800>
   <tr><td>
@@ -38,7 +52,7 @@ var myChart = new Chart(ctx, {
             {% endfor %}  
         ],
         datasets: [{
-            label: '各分店營收情形',
+            label: '{{ title }}',
             data: [
             {% for item in data %}   
               '{{ item.income }}', 
