@@ -48,7 +48,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [
             {% for item in data %}   
-              '{{ item.branch }}-{{item.income_month}}', 
+              '{{ item.branch }}-{{ item.income_month }}', 
             {% endfor %}  
         ],
         datasets: [{

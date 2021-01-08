@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,16 +10,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <title>{% block title%}{% endblock %}</title>
     <style>
-        body{
-            font-family: 微軟正黑體; 標楷體; 新細明體
-        }
+        body { font-family: 微軟正黑體; 標楷體; 新細明體 }
     </style>   
   </head>
   <body>
     <div class = "container">
     {% block titlemessage %} {% endblock %}
     {% include 'header.html' %}   
-    {% block content%} {% endblock %}
+    {% block content %} {% endblock %}
     {% include 'footer.html' %}
     </div>
     <!-- Optional JavaScript; choose one of the two! -->

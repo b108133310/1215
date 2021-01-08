@@ -41,12 +41,20 @@ def chart(request, year=0, month=0):
             data = data.filter(income_month=month)
      
     if year>0 and month>0:        
-        title = "{}年{}月各分店營收情形".format(year.month)
+        title = "{}年{}月各分店營收情形".format(year, month)
     elif year>0:
         title = "{}年各分店營收情形".format(year)
     else:
         title = "各分店營收情形"
     return render(request,"mychart.html",locals())
+
+def lotto(request):
+    lucky = random.randint(1,42)
+    lottos = list()
+    for i in range(6):
+        lottos.append(random.randint(1,42))
+        
+    return render(request,"lotto.html",locals())
 
 def showpost(request, slug):
     now = datetime.now()
@@ -56,10 +64,8 @@ def showpost(request, slug):
     except:
 	    return redirect("/")
 
-def lotto(request):
-    lucky = random.randint(1,42)
-    lottos = list()
-    for i in range(6):
-        lottos.append(random.randint(1,42))
-        
-    return render(request,"lotto.html",locals())
+def showarticles(request):
+    posts = Post.objects.all()
+    now = datetime.now()
+
+    return render(request,"articles.html",locals())
